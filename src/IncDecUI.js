@@ -10,26 +10,34 @@ const IncDecUi = () => {
         style={{
           // border: '2px solid red',
           display: 'flex',
+          flexDirection: 'column',
           height: '100vh',
           justifyContent: 'center',
           alignItems: 'center',
+          textAlign: 'center',
         }}
       >
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => dispatch(Dec(5))}
-        >
-          -
-        </Button>
-        <Input value={numberChanger}></Input>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => dispatch(Inc(5))}
-        >
-          +
-        </Button>
+        <h1>INCREMENT / DECREMENT COUNTER</h1>
+        <Container>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => dispatch(Dec())}
+          >
+            -
+          </Button>
+          <Input
+            value={numberChanger}
+            style={{ textAlign: 'center', alignItems: 'center' }}
+          ></Input>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => dispatch(Inc())}
+          >
+            +
+          </Button>
+        </Container>
       </Container>
     </>
   );
