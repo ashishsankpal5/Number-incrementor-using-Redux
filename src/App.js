@@ -1,13 +1,15 @@
 import IncDecUi from './IncDecUI';
-import { CssBaseline } from '@material-ui/core';
+
+import ChangeNums from './ChangeNum';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {
   return (
     <>
-      <CssBaseline>
-        {' '}
-        <IncDecUi />
-      </CssBaseline>
+      <Router>
+        <Route exact path="/" component={IncDecUi} />
+        <Route exact path="/hooks" component={ChangeNums} />
+      </Router>
     </>
   );
 };

@@ -1,6 +1,8 @@
-import { Button, Input, Container } from '@material-ui/core';
+import { Button, Input, Container, TextField } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { Inc, Dec } from './actions/index';
+import { Link } from 'react-router-dom';
+import './style.css';
 const IncDecUi = () => {
   const dispatch = useDispatch();
   const numberChanger = useSelector((state) => state.numberChanger);
@@ -17,27 +19,33 @@ const IncDecUi = () => {
           textAlign: 'center',
         }}
       >
-        <h1>INCREMENT / DECREMENT COUNTER</h1>
+        <h1>INCREMENT / DECREMENT COUNTER WITH REDUX</h1>
         <Container>
           <Button
             variant="contained"
             color="secondary"
-            onClick={() => dispatch(Dec())}
+            onClick={() => dispatch(Dec(5))}
           >
             -
           </Button>
-          <Input
+          <TextField
+            className="inpt"
             value={numberChanger}
             style={{ textAlign: 'center', alignItems: 'center' }}
-          ></Input>
+          ></TextField>
           <Button
             variant="contained"
             color="primary"
-            onClick={() => dispatch(Inc())}
+            onClick={() => dispatch(Inc(5))}
           >
             +
           </Button>
         </Container>
+        <Link to="/hooks">
+          <Button variant="contained" color="primary">
+            with hooks
+          </Button>
+        </Link>
       </Container>
     </>
   );
